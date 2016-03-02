@@ -1,0 +1,18 @@
+#!/bin/bash
+clear
+
+echo standard barcode generator
+echo
+
+echo name:
+read name
+echo ID:
+read ID
+echo
+
+barcode -o $name.ps -e 128 -b $ID
+ps2pdf $name.ps $name.pdf
+rm $name.ps
+
+echo 128-encrypted barcode; located at $name.pdf
+echo 
